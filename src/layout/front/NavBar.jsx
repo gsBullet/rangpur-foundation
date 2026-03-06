@@ -157,7 +157,7 @@ const NavBar = () => {
                 <span className="text-white font-extrabold text-sm md:text-lg leading-tight font-[Tiro_Bangla]">
                   উৎকর্ষ ফাউন্ডেশন
                 </span>
-                <span className="hidden sm:block text-white/60 text-[0.6rem] tracking-wider uppercase">
+                <span className="hidden sm:block text-green-300 text-[0.6rem] tracking-wider uppercase">
                   Utkarsha Foundation
                 </span>
               </div>
