@@ -108,7 +108,7 @@ const Login = () => {
                 className="w-2 h-2 rounded-full bg-green-400 inline-block"
                 style={{ boxShadow: "0 0 8px #4ade80" }}
               />
-              স্বাগতম ফিরে আসায়
+              {" স্বাগতম ফিরে আসায়"}
             </div>
 
             <h2
