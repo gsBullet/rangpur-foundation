@@ -26,6 +26,7 @@ const Login = () => {
 
   const submit = () => {
     setLoading(true);
+    
     setTimeout(() => {
       setLoading(false);
       setSuccess(true);
