@@ -15,6 +15,7 @@ import DashboardLayout from "./layout/DashboardLayout";
 import Dashboard from "./Dashbaord/pages/Dashboard";
 import Login from "./pages/Login";
 import AuthPages from "./pages/AuthPages";
+import Register from "./pages/Register";
 
 
 const ProtectedRoute = ({ children }) => {
@@ -35,7 +36,7 @@ function App() {
       <Routes>
         <Route path="/" element={<FrontEndLayout />}>
           <Route index element={<Home />} />
-          <Route path="/contact" element={<ContactUs />} />
+          <Route path="contact" element={<ContactUs />} />
           <Route path="programs" element={<Programs />} />
           <Route path="donate" element={<DonateUs />} />
           <Route path="success-stories" element={<SuccessStories />} />
@@ -43,6 +44,7 @@ function App() {
           <Route path="blogs" element={<Blog />} />
           <Route path="about" element={<About />} />
           <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
           <Route path="auth" element={<AuthPages />} />
 
 

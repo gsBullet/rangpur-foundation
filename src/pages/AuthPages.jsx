@@ -105,19 +105,7 @@ const GreenPanel = ({ page }) => (
       </div>
     ))}
 
-    {/* logo */}
-    {/* <div className="relative z-10 p-10">
-      <div className="flex items-center gap-3">
-        <div className="w-11 h-11 rounded-xl flex items-center justify-center text-xl shadow-lg"
-          style={{ background: "rgba(255,255,255,.15)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,.2)" }}>
-          🌱
-        </div>
-        <div>
-          <div className="font-display text-white font-bold text-lg leading-tight">উৎকর্ষ ফাউন্ডেশন</div>
-          <div className="text-green-300 text-xs tracking-widest font-bangla">UTKARSHA FOUNDATION</div>
-        </div>
-      </div>
-    </div> */}
+ 
 
     {/* centre content */}
     <div className="relative z-10 px-10 flex-1 flex flex-col justify-center">
@@ -314,6 +302,7 @@ const Login = ({ onSwitch }) => {
 };
 
 // ─── REGISTER PAGE ────────────────────────────────────────────────────────────
+;
 const Register = ({ onSwitch }) => {
   const [step, setStep]   = useState(1);
   const [show, setShow]   = useState(false);
@@ -520,8 +509,7 @@ const Register = ({ onSwitch }) => {
       )}
     </div>
   );
-};
-
+}
 // ─── ROOT ─────────────────────────────────────────────────────────────────────
 export default function AuthPages() {
   const [page, setPage] = useState("login");
