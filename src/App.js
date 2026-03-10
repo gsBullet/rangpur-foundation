@@ -21,6 +21,8 @@ import ProgramsContent from "./Dashbaord/pages/programs/ProgramsContent";
 import ProjectsContent from "./Dashbaord/pages/projects/ProjectsContent";
 import SuccessStorites from "./Dashbaord/pages/stories/SuccessStorites";
 import AllBlogs from "./Dashbaord/pages/blog/AllBlogs";
+import AllDonation from "./Dashbaord/pages/donation/AllDonation";
+import Volunteers from "./Dashbaord/pages/volunteer/Volunteers";
 
 const ProtectedRoute = ({ children }) => {
   const { user } = useContext(FrontendAuthContext);
@@ -68,9 +70,10 @@ function App() {
           <Route path="our-activities" element={<ProgramsContent />} />
           <Route path="our-projects" element={<ProjectsContent />} />
           <Route path="success-stories" element={<SuccessStorites />} />
-          <Route path="all-donation" element={<DonateUs />} />
+          <Route path="all-donations" element={<AllDonation />} />
           <Route path="contact" element={<ContactUs />} />
           <Route path="all-blogs" element={<AllBlogs />} />
+          <Route path="volunteers" element={<Volunteers />} />
         </Route>
       </Routes>
     </HashRouter>

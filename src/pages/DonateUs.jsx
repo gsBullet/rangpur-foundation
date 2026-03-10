@@ -7,7 +7,7 @@ const DonateUs = () => {
   const [donationAmount, setDonationAmount] = useState(500);
   return (
     <div>
-        <PageMeta
+      <PageMeta
         title="ডোনেশন | সহায়তা করুন"
         description="আপনার দানে আলোকিত হোক জীবন - bKash ও Nagad-এর মাধ্যমে নিরাপদে দান করুন"
       />
