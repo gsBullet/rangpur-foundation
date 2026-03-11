@@ -16,6 +16,7 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
 
   const [open, setOpen] = useState(null);
   const [hovered, setHovered] = useState(null);
+  const [hoverTimeout, setHoverTimeout] = useState(null);
 
   const NAV = [
     {
@@ -23,7 +24,6 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
       icon: LayoutDashboard,
       path: "/dashboard",
     },
-
     {
       label: "ডোনেশন",
       icon: HeartHandshake,
@@ -32,7 +32,6 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
         { label: "নতুন ডোনেশন", path: "/dashboard/add-donation" },
       ],
     },
-
     {
       label: "কার্যক্রম",
       icon: CalendarDays,
@@ -41,7 +40,6 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
         { label: "আসন্ন ইভেন্ট", path: "/dashboard/upcoming-events" },
       ],
     },
-
     {
       label: "প্রকল্প",
       icon: FolderKanban,
@@ -51,18 +49,18 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
       ],
     },
     {
-        label: "সাফল্যের গল্প",
-        icon: HeartHandshake,
-        children: [
-          { label: "সকল গল্প", path: "/dashboard/success-stories" },
-          { label: "নতুন গল্প", path: "/dashboard/add-success-story" },
-        ],
+      label: "সাফল্যের গল্প",
+      icon: HeartHandshake,
+      children: [
+        { label: "সকল গল্প", path: "/dashboard/success-stories" },
+        { label: "নতুন গল্প", path: "/dashboard/add-success-story" },
+      ],
     },
     {
       label: "ব্লগ",
       icon: CalendarDays,
       children: [
-        { label: "সকল ব্লগ", path: "/dashboard/blogs" },
+        { label: "সকল ব্লগ", path: "/dashboard/blogs-content" },
         { label: "নতুন ব্লগ", path: "/dashboard/add-blogs" },
       ],
     },
@@ -74,13 +72,11 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
         { label: "নতুন স্বেচ্ছাসেবী", path: "/dashboard/add-volunteer" },
       ],
     },
-
     {
       label: "রিপোর্ট",
       icon: BarChart3,
       path: "/dashboard/reports",
     },
-
     {
       label: "সেটিংস",
       icon: Settings,
@@ -89,6 +85,18 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
   ];
 
   const isActive = (path) => location.pathname === path;
+
+  const handleMouseEnter = (i) => {
+    if (hoverTimeout) clearTimeout(hoverTimeout);
+    setHovered(i);
+  };
+
+  const handleMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setHovered(null);
+    }, 200);
+    setHoverTimeout(timeout);
+  };
 
   return (
     <aside
@@ -118,8 +126,8 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
             <div
               key={i}
               className="relative"
-              onMouseEnter={() => collapsed && setHovered(i)}
-              onMouseLeave={() => collapsed && setHovered(null)}
+              onMouseEnter={() => collapsed && handleMouseEnter(i)}
+              onMouseLeave={() => collapsed && handleMouseLeave()}
             >
               {/* Main Item */}
               {item.children ? (
@@ -205,7 +213,9 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
       <div className="px-2.5 py-3 border-t border-green-50">
         <button
           onClick={() => setCollapsed((c) => !c)}
-          className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl font-bn text-xs text-gray-400 hover:bg-green-50 hover:text-green-700 transition-all cursor-pointer border-0 bg-transparent ${collapsed ? "justify-center" : ""}`}
+          className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs text-gray-400 hover:bg-green-50 hover:text-green-700 transition-all cursor-pointer border-0 bg-transparent ${
+            collapsed ? "justify-center" : ""
+          }`}
         >
           <span
             className="text-base transition-transform duration-300"

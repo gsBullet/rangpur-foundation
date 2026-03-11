@@ -72,7 +72,7 @@ function App() {
           <Route path="success-stories" element={<SuccessStorites />} />
           <Route path="all-donations" element={<AllDonation />} />
           <Route path="contact" element={<ContactUs />} />
-          <Route path="all-blogs" element={<AllBlogs />} />
+          <Route path="blogs-content" element={<AllBlogs />} />
           <Route path="volunteers" element={<Volunteers />} />
         </Route>
       </Routes>
